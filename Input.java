@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Input {
 
-    private static final Random random = new Random();
+    public static final Random random = new Random();
 
     public static int[] getSingleDimensionArray(int size, int start, int end) {
         int[] array = new int[size];
