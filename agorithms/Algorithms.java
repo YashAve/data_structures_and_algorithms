@@ -36,7 +36,7 @@ public class Algorithms {
             }
         }
 
-        System.out.printf("Output: ");
+        System.out.print("Output: ");
 
         if (output[0] != -1 && output[1] != -1) {
             System.out.printf("input[%d, %d] added up to the target %d%n", output[0], output[1], target);
@@ -44,5 +44,25 @@ public class Algorithms {
         }
 
         System.out.println("no matches were found");
+    }
+
+    public static void rotateStringEquals(String input, String goal) {
+
+        boolean same = false;
+        char[] characters = input.toCharArray();
+
+        for (int i = 0; i < characters.length; i++) {
+            if (new String(characters).equals(goal)) {
+                same = true;
+                break;
+            }
+            char value = characters[0];
+            for (int j = 0; j < characters.length - 1; j++) {
+                characters[j] = characters[j + 1];
+            }
+            characters[characters.length - 1] = value;
+        }
+
+        System.out.printf("%s when rotated, %s contain %s%n", input, same ? "does" : "does not", goal);
     }
 }
