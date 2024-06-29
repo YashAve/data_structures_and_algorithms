@@ -1,21 +1,21 @@
 package javacode;
 
-import javacode.agorithms.Algorithms;
-import javacode.agorithms.Recursion;
+import javacode.datastructures.binary_search_trees.BinarySearchTree;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        //recursion();
+        binarySearchTrees();
     }
 
-    public static void algorithms() {
-        Algorithms.twoSum(Input.getSingleDimensionArray(7, -100, 100), Input.random.nextInt(0, 100));
-    }
-
-    public static void recursion() {
-        int number = 4;
-        System.out.println(number + "! using iteration is equal to " + Recursion.iterativeFactorial(number));
-        System.out.println(number + "! using recursion is equal to " + Recursion.recursiveFactorial(number));
+    public static void binarySearchTrees() {
+        BinarySearchTree tree = new BinarySearchTree();
+        List<Integer> integers = new ArrayList<>(List.of(
+                25, 20, 15, 27, 30, 29, 26, 22, 32
+        ));
+        integers.forEach((value) -> tree.insert(value));
     }
 }

@@ -52,12 +52,13 @@ public class Algorithms {
       For example, if s = "abcde", then it will be "bcdea" after one shift.
     */
 
-    public static void rotateStringEquals(String input, String goal) {
+    public static void rotateString(String input, String goal) {
 
         boolean same = false;
+        boolean equal = input.length() != goal.length();
         char[] characters = input.toCharArray();
 
-        for (int i = 0; i < characters.length; i++) {
+        for (int i = 0; equal && i < characters.length; i++) {
             if (new String(characters).equals(goal)) {
                 same = true;
                 break;
@@ -70,5 +71,41 @@ public class Algorithms {
         }
 
         System.out.printf("%s when rotated, %s contain %s%n", input, same ? "does" : "does not", goal);
+    }
+
+    public static <T> void palindrome(T input) {
+
+        boolean string = false;
+        if (input instanceof String) {
+            string = true;
+        }
+
+        String variable = string ? (String) input : String.valueOf(input);
+
+        boolean same = true;
+        for (int i = 0, last = variable.length() - 1; i < variable.length() / 2; i++, last -= i) {
+            if (variable.charAt(i) != variable.charAt(last)) {
+                same = false;
+                break;
+            }
+        }
+
+        System.out.printf("%s is %s palindrome%n", variable, same ? "a" : "not a");
+    }
+
+    public static void createPalindrome(int input) {
+        if (input == 1) {
+            System.out.println(1);
+        }
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 1; i < input; i++) {
+            stringBuilder.append(i);
+        }
+        stringBuilder.append(input);
+        for (int i = input - 1; i > 0; i--) {
+            stringBuilder.append(i);
+        }
+        System.out.println(stringBuilder);
     }
 }
